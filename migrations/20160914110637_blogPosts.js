@@ -1,14 +1,14 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('blogPosts', function(table){
+  return knex.schema.createTable('blogposts', function(table){
     table.increments();
     table.string('name');
-    table.timestamp('created_at');
+    table.timestamps(true,true);
     table.string('title');
     table.string('content');
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('blogPosts');
+  return knex.schema.dropTable('blogposts');
 };

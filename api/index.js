@@ -19,7 +19,7 @@
   router.get('/v1/items/delete/:id', (req, res, next) => {
     console.log("the id is: ", req.params.id);
     res.json(req.params)
-    pg('blogPosts').where('id', req.params.id).del()
+    pg('blogposts').where('id', req.params.id).del()
     .then((something)=>{
       console.log(something)
     res.redirect('/')

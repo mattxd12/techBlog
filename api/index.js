@@ -17,8 +17,8 @@
   });
 
   router.get('/v1/items/delete/:id', (req, res, next) => {
-    console.log("the id is: ", req.params.id);
-    res.json(req.params)
+    // console.log("the id is: ", req.params.id);
+    // res.json(req.params)
     pg('blogposts').where('id', req.params.id).del()
     .then((something)=>{
       console.log(something)

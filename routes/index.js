@@ -1,13 +1,27 @@
+"use strict"
+
 var express = require('express');
 var router = express.Router();
 
-var pg = require('pg');
+// var pg = require('pg');
+const pg = require('../db/knex_config.js')
 const app = express();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/', function(req, res, next) {
+   pg('blogposts').select()
+     .then((rows)=>{
+       res.render('index', {items: rows})
+   })
+     .catch((err)=>{
+       console.error("Error getting from the database");
+       next(err)
+     })
+ });
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {

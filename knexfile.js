@@ -8,7 +8,6 @@ module.exports = {
       database: 'techblogdb'
     }
   },
-
   production: {
     client: 'postgresql',
     connection: process.env.DATABASE_URL,
@@ -20,5 +19,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };

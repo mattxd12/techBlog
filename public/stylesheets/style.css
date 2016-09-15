@@ -1,8 +1,65 @@
 body {
-  padding: 50px;
+  padding: 0px;
+  margin:0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/blogBackground.jpg');
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
+  width: auto;
+  overflow: inherit;
 }
-
-a {
-  color: #00B7FF;
+a, p, h1, h2, h3 {
+  color: black;
+  list-style: none;
+}
+.white, label{
+  color: white;
+}
+.topBar{
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  max-height: 70px;
+  min-height: 60px;
+  width: 100%;
+}
+.logo{
+  display: flex;
+  justify-content: flex-start;
+  max-height: 70px;
+}
+.logout{
+  margin-right: 15px;
+}
+.blogPostDivContainer{
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
+  word-break: break-all;
+}
+.blogPostDiv{
+  background: rgba(162, 163, 166, .8) ;
+  border: 2px black solid;
+  max-width: 95%;
+  min-width: 95%;
+  word-wrap: normal;
+  margin: 10px 10px;
+}
+.completed > a{
+  color: red !important;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.blogPostDiv > .postTitle{
+  align-self: center;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .blogPostDiv{
+      margin: 2.5% 2.5% 2.5% 2.5%;
+    }
 }

@@ -1,17 +1,3 @@
-
-<ul class="blogPostDivContainer">
-  {{#each items}}
-    <div class="blogPostDiv">
-      <span class='completed'><a href="/api/v1/items/delete/{{this.id}}"><strong>x</strong></a></span>
-      <h3 class="postTitle">{{this.title}}</h3>
-      <p class="postContent">{{this.content}}</p>
-      <li class="postName"><strong>Written by: {{this.name}}</strong></li>
-    </div>
-  {{/each}}
-</ul>
-
-
-
 <h2> Create a blog post</h2>
 <p>Welcome {{user.username}}!</p>
 <section>

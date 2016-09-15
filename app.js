@@ -10,9 +10,20 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 const app = express();
 const api = require('./api/index.js');
+
 // view engine setup
+var hbs = require('hbs');
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+
+hbs.registerHelper('dotdotdot', function(str) {
+  if (str.length > 400)
+    return str.substring(0,400) + '...';
+  return str;
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -23,6 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -50,5 +63,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
 
 module.exports = app;

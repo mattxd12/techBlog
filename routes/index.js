@@ -2,6 +2,8 @@
 
 var express = require('express');
 var router = express.Router();
+var helpers = require('handlebars-helpers')();
+var Handlebars = require('handlebars');
 
 const pg = require('../db/knex_config.js')
 
@@ -17,5 +19,7 @@ router.get('/', function(req, res, next) {
        next(err)
      })
  });
+
+
 
 module.exports = router;

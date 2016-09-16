@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var articles = require('./routes/articles');
 const app = express();
 const api = require('./api/index.js');
 
@@ -24,14 +25,21 @@ hbs.registerHelper('dotdotdot', function(str) {
   return str;
 });
 
+
+hbs.registerHelper('shortDate', function(str) {
+  var date = str;
+  var shorten = date.toString().split(" ");
+  return shorten[1]+ ' ' +shorten[2]+ ', ' +shorten[3];
+});
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
+app.use('/articles', routes);
 app.use('/users', users);
 app.use('/api', api);
 
@@ -42,6 +50,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 // error handlers
 // development error handler
 // will print stacktrace
@@ -63,7 +72,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
 
 module.exports = app;

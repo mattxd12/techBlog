@@ -19,7 +19,19 @@ router.get('/', function(req, res, next) {
        next(err)
      })
  });
-
+ router.get('/article/:id', function(req, res, next) {
+   var id = req.params.id;
+   console.log(id);
+    pg('blogposts').where('id', id)
+      .then((rows)=>{
+        res.render('article', {items: rows})
+        console.log(rows);
+    })
+      .catch((err)=>{
+        console.error("Error getting from the database");
+        next(err)
+      })
+  });
 
 
 module.exports = router;

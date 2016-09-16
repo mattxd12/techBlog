@@ -1,5 +1,4 @@
-
-
+<link rel="icon" href="public/images/favicon.ico?" type="image/x-icon">
 
 <ul class="blogPostDivContainer">
   {{#each items}}
@@ -8,7 +7,7 @@
       <h2 class="postTitle">{{this.title}}</h2>
       <p class="postContent">{{dotdotdot this.content}}</p>
       <li class="postName"><strong>Written by: {{this.name}}</strong></li>
-      <a href="#" class="read_more_button">Read More</a>
+      <a href="article/{{this.id}}" class="read_more_button">Read More</a>
     </div>
   {{/each}}
 </ul>

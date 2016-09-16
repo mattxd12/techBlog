@@ -1,0 +1,22 @@
+<link rel="icon" href="public/images/favicon.ico?" type="image/x-icon">
+
+<ul class="blogPostDivContainer">
+  {{#each items}}
+    <div class="blogPostDiv">
+      <span class='completed'><a href="/api/v1/items/delete/{{this.id}}"><strong>x</strong></a></span>
+      <h3 class="createdDate">Posted on: {{shortDate this.created_at}}</h3>
+      <h2 class="postTitle">{{this.title}}</h2>
+      <p class="postContent">{{this.content}}</p>
+      <li class="postName"><strong>Written by: {{this.name}}</strong></li>
+    </div>
+    {{/each}}
+</ul>
+
+<!-- <h1>Comments</h1>
+
+<div id="comments">
+  {{#each comments}}
+  <h2><a href="/posts/{{../permalink}}#{{id}}">{{title}}</a></h2>
+  <div>{{body}}</div>
+  {{/each}}
+</div> -->

@@ -16,6 +16,13 @@
     })
   });
 
+  router.post('/article/:id', (req, res, next) => {
+    pg('blogposts').where('id', req.params.id)
+    .then(() =>{
+      res.render(req.this.body)
+    })
+});
+
   router.get('/v1/items/delete/:id', (req, res, next) => {
     // console.log("the id is: ", req.params.id);
     // res.json(req.params)
